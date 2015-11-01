@@ -88,7 +88,49 @@ namespace TraoDoiDoCu.BusinessLayer
             return dal.ActivateAccount(Username, ActivationCode);
         }
         #endregion
-
+        #region #phần forgot password
+        public bool CheckMailExistence(string Email)
+        {
+            return dal.CheckMailExistence(Email);
+        }
+        public bool SetUpResetPassword(string email)
+        {
+            string reset_code = dal.SetUpResetPassword(email);
+            if (reset_code == null)
+                return false;
+            SendResetPasswordEmail(email, reset_code);
+            return true;
+        }
+        private void SendResetPasswordEmail(string Email, string reset_code)
+        {
+            using (MailMessage mm = new MailMessage("khoa.kiet.pttkpm@gmail.com", Email))
+            {
+                mm.Subject = "Email reset tài khoản trên hệ thống Trao đổi đồ cũ";
+                string body = "<br />Vừa có một yêu cầu lấy lại mật khẩu được gửi vào tài khoản của bạn, để lấy lại mật khẩu xin click vào đường link bên dưới.";
+                body += "<br /><a href = '" + "http://localhost:3726/Account/ResetPassword?Email=" + Email + "&ResetCode=" + reset_code + "'>Click vào đây để lấy lại mật khẩu.</a>";
+                body += "<br /><br />Thanks";
+                mm.Body = body;
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential NetworkCred = new NetworkCredential("khoa.kiet.pttkpm@gmail.com", "khoahoangtuankiet");
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                smtp.Send(mm);
+            }
+        }
+        public bool ChekcResetPassword(string Email, string ResetCode)
+        {
+            return dal.CheckResetPassword(Email, ResetCode);
+        }
+        public bool ChangePassword(ResetPasswordViewModel ressetPassVM)
+        {
+            return dal.ResetPassword(ressetPassVM);            
+        }
+        #endregion        
+    
         
     }
 }

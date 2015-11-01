@@ -17,12 +17,12 @@ namespace TraoDoiDoCu.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public Nullable<int> CategoryID { get; set; }
-        public Nullable<decimal> Price { get; set; }
+        public int CategoryID { get; set; }
+        public int Price { get; set; }
         public string Picture { get; set; }
-        public Nullable<System.DateTime> PostingDate { get; set; }
+        public System.DateTime PostingDate { get; set; }
         public Nullable<bool> Available { get; set; }
-        public Nullable<int> UserID { get; set; }
+        public int UserID { get; set; }
         public string Location { get; set; }
     
         public virtual Category Category { get; set; }

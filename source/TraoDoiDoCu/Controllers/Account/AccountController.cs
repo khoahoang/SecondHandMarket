@@ -112,5 +112,75 @@ namespace TraoDoiDoCu.Controllers.Account
                 return View("Result");
             }
         }
+        // GET: /Account/ForgotPassword
+        public ActionResult ForgotPassword()
+        {
+            if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+                return RedirectToAction("Index", "Home");
+            return View("ForgotPassword");
+        }
+        // POST: /Account/ForgotPassword
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (bus.CheckMailExistence(model.Email))
+                {
+                    ViewBag.Title = "Kết quả lấy lại mật khẩu";
+                    if (bus.SetUpResetPassword(model.Email))
+                    {
+                        ViewBag.Message = "Xin vui lòng kiểm tra email để đổi lại mật khẩu.";
+                        return View("Result");
+                    }
+                    else
+                    {
+                        ViewBag.Alert = "Chúng tôi không thể gửi mail lấy lại mật khẩu đến email của bạn. Chúng tôi xin lỗi về sự bất tiện này.";
+                        return View("Result");
+                    }
+                }
+                else
+                {
+                    ViewBag.Alert = "Email không tồn tại.";
+                    return View("ForgotPassword");
+                }
+            }
+            return View(model);
+        }
+        // GET: /Account/ResetPassword
+        [HttpGet]
+        public ActionResult ResetPassword(string Email, string ResetCode)
+        {
+            if (bus.ChekcResetPassword(Email, ResetCode))
+            {
+                return View("ResetPassword");
+            }
+            else
+            {
+                ViewBag.Title = "Kết quả đổi mật khẩu";
+                ViewBag.Message = "Link đổi mật khẩu đã quá hạn.";
+                return View("Result");
+            }
+        }
+        // POST: /Account/ResetPassword
+        [HttpPost]
+        public ActionResult ResetPassword(ResetPasswordViewModel resetPassVM)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Title = "Kết reset mật khẩu";
+                if (bus.ChangePassword(resetPassVM))
+                {
+                    ViewBag.Message = "Đổi khẩu thành công.";
+                    return View("Result");
+                }
+                else
+                {
+                    ViewBag.Message = "Đổi mật khẩu thất bại.";
+                    return View("Result");
+                }
+            }
+            return View(resetPassVM);
+        }
 	}
 }

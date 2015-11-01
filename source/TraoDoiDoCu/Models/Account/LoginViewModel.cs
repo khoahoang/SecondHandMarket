@@ -14,7 +14,7 @@ namespace TraoDoiDoCu.Models.Account
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(50, MinimumLength = 6, ErrorMessage = "Mật khẩu nhiều hơn 6 kí tự và ít hơn 50 kí tự.")]
+        [StringLength(50, MinimumLength = 6, ErrorMessage = "Mật khẩu nhiều hơn 5 kí tự và ít hơn 50 kí tự.")]
         [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
