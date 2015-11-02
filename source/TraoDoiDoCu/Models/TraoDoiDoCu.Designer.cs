@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Hoc\Subject\Quan_ly_du_an\Project\Source\InitializaProject\TraoDoiDoCu\TraoDoiDoCu\Models\SecondHandTrading.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Data\Dropbox\Work space\A4\semaster1\QuanLyDuAn\BigGroup\SecondHandMarket\source\TraoDoiDoCu\Models\TraoDoiDoCu.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
