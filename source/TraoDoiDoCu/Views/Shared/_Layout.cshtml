@@ -19,7 +19,11 @@
 
     <!-- Custom styles for this template -->
     <link href="@Url.Content("~/Content/css/carousel.css")" rel="stylesheet">
+<<<<<<< HEAD
     <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
+=======
+    <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet">
+>>>>>>> 46719596952434564b276b45a351f9c76d777fef
 
     <script type="text/javascript">
         function next(currentId) {
@@ -58,25 +62,28 @@
                     </button>
                     <a class="navbar-brand" href="#"><img class="img-responsive" src="http://www.turnerduckworth.com/media/filer_public/b4/ac/b4ac5dfe-b335-403c-83b2-ec69e01f94e6/td-amazon-hero.svg" alt="Logo"></a>
                 </div>
-                <div id="navbar" class="navbar-collapse collapse navbar-right">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Action</a></li>
-                                <li><a href="#">Another action</a></li>
-                                <li><a href="#">Something else here</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li><a href="#">Separated link</a></li>
-                                <li><a href="#">One more separated link</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+               
+                <ul id="menu">
+                    <li><a href="#"><b>Trang chủ</b></a></li>
+                    <li><a href="#about"><b>Thông tin</b></a></li>
+                    <li><a href="#contact"><b>Liên hệ</b></a></li>
+                    <li class="my-menu">
+                        <b>
+                            @if (Request.IsAuthenticated)
+                            {
+                               <text>Xin chào,</text> <a style="margin-right: 14px; color: white"href="@Url.Action("Index", "ManageAccount", new { customername = User.Identity.Name }) ">@Html.Encode(User.Identity.Name) </a>    
+                                
+                                @Html.ActionLink("Đăng xuất", "Logout", "Account")
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Đăng kí", "Register", "Account")
+                                <span> | </span>
+                                @Html.ActionLink("Đăng nhập", "Login", "Account")
+                            }
+                        </b>
+                    </li>
+                </ul>
                 <!-- </div> -->
             </nav>
         </div>
@@ -160,9 +167,7 @@
     </footer>
 
     <!-- jQuery -->
-
-    <script src="~/Scripts/jquery/jquery-1.11.3.min.js"></script>
-    @*<script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-1.11.3.min.js")"></script>*@
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-1.11.3.min.js")"></script>
     <!-- boostrap -->
     <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap/bootstrap.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap/bootstrap-select.min.js")"></script>

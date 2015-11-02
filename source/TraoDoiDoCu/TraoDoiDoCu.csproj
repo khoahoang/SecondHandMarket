@@ -109,64 +109,67 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <EntityDeploy Include="Models\SecondHandTrading.edmx">
+    <EntityDeploy Include="Models\TraoDoiDoCu.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SecondHandTrading.Designer.cs</LastGenOutput>
+      <LastGenOutput>TraoDoiDoCu.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SecondHandTrading.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SecondHandTrading.edmx</DependentUpon>
-      <LastGenOutput>SecondHandTrading.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\SecondHandTrading.edmx.diagram">
-      <DependentUpon>SecondHandTrading.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\SecondHandTrading.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SecondHandTrading.edmx</DependentUpon>
-      <LastGenOutput>SecondHandTrading.cs</LastGenOutput>
+    <Content Include="Models\TraoDoiDoCu.edmx.diagram">
+      <DependentUpon>TraoDoiDoCu.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery\jquery-1.10.2.intellisense.js" />
+    <Content Include="Models\TraoDoiDoCu.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TraoDoiDoCu.edmx</DependentUpon>
+      <LastGenOutput>TraoDoiDoCu.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\TraoDoiDoCu.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TraoDoiDoCu.edmx</DependentUpon>
+      <LastGenOutput>TraoDoiDoCu.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap\bootstrap-select.min.js" />
     <Content Include="Scripts\bootstrap\bootstrap.min.js" />
-    <Content Include="Scripts\jquery\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery\jquery-1.11.3.min.map" />
     <None Include="Scripts\jquery\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery\jquery-1.11.3.js" />
+    <Content Include="Scripts\jquery\jquery-1.11.3.min.js" />
     <Content Include="Scripts\jquery\jquery.validate.js" />
     <Content Include="Scripts\jquery\jquery.validate.min.js" />
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Views\Page404.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Home\HomeController.cs" />
+    <Compile Include="Controllers\Product\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>SecondHandTrading.tt</DependentUpon>
+      <DependentUpon>TraoDoiDoCu.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>SecondHandTrading.tt</DependentUpon>
+      <DependentUpon>TraoDoiDoCu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SecondHandTrading.Context.cs">
+    <Compile Include="Models\TraoDoiDoCu.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SecondHandTrading.Context.tt</DependentUpon>
+      <DependentUpon>TraoDoiDoCu.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SecondHandTrading.cs">
+    <Compile Include="Models\TraoDoiDoCu.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SecondHandTrading.tt</DependentUpon>
+      <DependentUpon>TraoDoiDoCu.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SecondHandTrading.Designer.cs">
+    <Compile Include="Models\TraoDoiDoCu.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SecondHandTrading.edmx</DependentUpon>
+      <DependentUpon>TraoDoiDoCu.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>SecondHandTrading.tt</DependentUpon>
+      <DependentUpon>TraoDoiDoCu.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -174,9 +177,9 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Scripts\jquery\jquery-1.10.2.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
