@@ -1,0 +1,118 @@
+.logo_lage {
+	width: 234px;
+    height: 60px;
+    background: url("../images/sunny_common.png") 		no-repeat -84px -2px;
+	}
+#listing_large {
+    display: inline-block;
+    vertical-align: middle;
+}
+.send_button_group {
+	text-align:center;
+}
+.btn-xulytk {
+    margin : 5px;
+}
+.img_wraper {
+	display: inline-block;
+    height: auto;
+    vertical-align: middle;
+    width: 400px;
+    zoom: 1;
+}
+.my_navbar {
+	height:100%;
+	margin-top: 0px;
+	background:#BBDEFB;
+	border:none;
+	width:100%;
+}
+.login_button_template {
+	background-color:#009688;
+	margin-top: 15px;
+}
+.search_user_result {
+	padding-top: 5px;
+    padding-bottom: 5px;
+}
+.customtopmenu {
+	background-color:transparent;
+	margin-left: 450px;
+}
+#header_right {
+	display: inline-block;
+    height: 100%;
+    text-align: right;
+    width: 550px;
+}
+#sunny_post_newad {
+	border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .3px;
+    padding: 6px 11px;
+    text-decoration: none;
+    display: inline-block;
+    background: #f90;
+    margin-left: 5px;
+}
+.banner_header {
+	background:#42A5F5;
+	height:100px;
+}
+.mysql_col {
+	background:#BBDEFB;
+	height:100%;
+}
+.sunny_nav_tabs {
+    background: #fff7d0;
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    top: 0;
+    transition: height 250ms,transform 250ms;
+    font-weight: bold;
+    height: 70px;
+}
+.sprite_sunny_common_black_search_icon {
+    width: 20px;
+    height: 20px;
+    background: url("../images/sunny_common.png") no-repeat -581px -27px;
+}
+#view_listing {
+    color: #000;
+    font-size: 12px;
+    letter-spacing: .3px;
+    padding: 6px 11px;
+    text-decoration: none;
+    display: inline-block;
+}
+#sunny_post_newad:hover {
+	background: #FF0;
+}
+.search_button {
+	background:#06F;
+}
+.lock_button {
+	background:#808080;
+}
+.delete_button {
+	background:#FF0000;
+}
+.send_button {
+	background:#06F;
+}
+.thongbao {
+	width: 500px;
+    height: 50px;
+}
+.sprite_sunny_common_post_icon {
+	width: 16px;
+    height: 16px;
+    background: url("../images/sunny_common.png") no-repeat -127px -64px;
+}
+
+.product-row{
+    padding-bottom: 20px;
+}

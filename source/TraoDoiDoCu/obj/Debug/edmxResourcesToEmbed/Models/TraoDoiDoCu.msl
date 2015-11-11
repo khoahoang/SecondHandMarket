@@ -30,6 +30,8 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="TraoDoiDoCuModel.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="BanTime" ColumnName="BanTime" />
+          <ScalarProperty Name="BanDate" ColumnName="BanDate" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="PassWord" ColumnName="PassWord" />
@@ -43,6 +45,15 @@
           <ScalarProperty Name="ActiveCode" ColumnName="ActiveCode" />
           <ScalarProperty Name="ResetPassword" ColumnName="ResetPassword" />
           <ScalarProperty Name="DateRequest" ColumnName="DateRequest" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GlobalDatas">
+      <EntityTypeMapping TypeName="TraoDoiDoCuModel.GlobalData">
+        <MappingFragment StoreEntitySet="GlobalDatas">
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

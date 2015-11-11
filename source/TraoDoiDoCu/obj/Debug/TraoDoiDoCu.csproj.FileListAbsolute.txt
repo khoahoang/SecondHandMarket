@@ -38,3 +38,25 @@ E:\Data\Dropbox\Work space\A4\semaster1\QuanLyDuAn\BigGroup\SecondHandMarket\sou
 E:\Data\Dropbox\Work space\A4\semaster1\QuanLyDuAn\BigGroup\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.csprojResolveAssemblyReference.cache
 E:\Data\Dropbox\Work space\A4\semaster1\QuanLyDuAn\BigGroup\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.dll
 E:\Data\Dropbox\Work space\A4\semaster1\QuanLyDuAn\BigGroup\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.pdb
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\TraoDoiDoCu.dll.config
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\TraoDoiDoCu.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\TraoDoiDoCu.pdb
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.SqlServer.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Helpers.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Mvc.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Razor.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Deployment.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Razor.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.SqlServer.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Razor.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Deployment.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Razor.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Helpers.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Mvc.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.pdb
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\Microsoft.Web.Infrastructure.dll

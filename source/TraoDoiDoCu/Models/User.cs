@@ -33,6 +33,8 @@ namespace TraoDoiDoCu.Models
         public string ActiveCode { get; set; }
         public string ResetPassword { get; set; }
         public Nullable<System.DateTime> DateRequest { get; set; }
+        public Nullable<System.DateTime> BanDate { get; set; }
+        public Nullable<int> BanTime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Products { get; set; }

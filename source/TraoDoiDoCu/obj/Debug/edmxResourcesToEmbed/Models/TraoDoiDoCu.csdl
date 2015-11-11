@@ -45,6 +45,8 @@
     <Property Name="ResetPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="DateRequest" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Products" Relationship="Self.FK_Product_Users" FromRole="Users" ToRole="Product" />
+    <Property Name="BanDate" Type="DateTime" Precision="3" />
+    <Property Name="BanTime" Type="Int32" />
   </EntityType>
   <Association Name="FK_Product_Category">
     <End Role="Category" Type="Self.Category" Multiplicity="1" />
@@ -82,5 +84,14 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Product" EntitySet="Products" />
     </AssociationSet>
+    <EntitySet Name="GlobalDatas" EntityType="TraoDoiDoCuModel.GlobalData" />
   </EntityContainer>
+  <EntityType Name="GlobalData">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

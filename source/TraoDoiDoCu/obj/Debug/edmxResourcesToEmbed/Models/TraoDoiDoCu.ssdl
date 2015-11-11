@@ -9,6 +9,14 @@
     <Property Name="Description" Type="nvarchar" MaxLength="500" />
     <Property Name="PictureCategory" Type="image" />
   </EntityType>
+  <EntityType Name="GlobalDatas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="255" />
+    <Property Name="Content" Type="nvarchar" MaxLength="255" />
+  </EntityType>
   <EntityType Name="Product">
     <Key>
       <PropertyRef Name="ID" />
@@ -41,6 +49,8 @@
     <Property Name="ActiveCode" Type="varchar" MaxLength="100" />
     <Property Name="ResetPassword" Type="varchar" MaxLength="100" />
     <Property Name="DateRequest" Type="datetime" />
+    <Property Name="BanDate" Type="datetime" />
+    <Property Name="BanTime" Type="int" />
   </EntityType>
   <Association Name="FK_Product_Category">
     <End Role="Category" Type="Self.Category" Multiplicity="1" />
@@ -68,6 +78,7 @@
   </Association>
   <EntityContainer Name="TraoDoiDoCuModelStoreContainer">
     <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GlobalDatas" EntityType="Self.GlobalDatas" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">

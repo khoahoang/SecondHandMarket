@@ -1,0 +1,46 @@
+﻿
+<div class="col-md-9">
+    <h2>Thông Báo</h2>
+    @using (Html.BeginForm("ThongBao", "Dashboard", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label for="comment">Nội dung:</label>
+            <textarea name="noiDungThongBao" class="form-control" rows="5" id="content"></textarea>
+            <label class="switch">
+                Gửi nhiều người
+                <input name="multi_send" id="multi_send" type="checkbox">
+                <span class="check"></span>
+            </label>
+            <br />
+            <label for="comment">Người nhận:</label>
+            <input id="nguoinhan" class="form-control" name="nguoinhan">
+        </div>
+
+        <div class="send_button_group">
+            <button type="submit" class="btn btn-success">Send</button>
+            <button type="button" class="btn btn-danger">Cancel</button>
+        </div>
+    }
+</div>
+
+    <script>
+        $(document).ready(function () {
+            $('#multi_send').click(function () {
+                if ($('#multi_send').is(":checked")) {
+                    $('#nguoinhan').prop("disabled", true);
+
+                    // it is checked
+                } else {
+                    $('#nguoinhan').prop("disabled", false);
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#nguoinhan').autocomplete({
+                source: '@Url.Action("Search", "Dashboard")'
+            });
+        });
+    </script>

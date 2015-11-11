@@ -1,0 +1,71 @@
+﻿
+<h2>Xử lý tài khoản</h2>
+
+<div class="container">
+    <div class="col-md-9">
+        <div class="row product-row">
+            <div class="col-md-6">
+                <input id="input_username" class="form-control" name="name-product" placeholder="Tìm kiếm user">
+            </div>
+            <div class="col-md-3">
+                <button id="search_button" type="submit" class="btn btn-success">Tìm kiếm</button>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $('#search_button').click(function () {
+                    $.ajax({
+                        type: 'GET',
+                        data: {username : $('#input_username').val()},
+                        url: '@Url.Action("SearchUser", "Dashboard")',
+                        success: function (result) {
+                            $('#search_result').html(result);
+                        }
+                    });
+                });
+            });
+        </script>
+        <div id="search_result">
+
+        </div>
+        
+        <div id="action_result">
+
+        </div>
+        <script>
+            $(document).ready(function () {
+                $('#khoataikhoan').click(function () {
+                    var names = [];
+                    $("#search_result div div div input:checked").each(function () {
+                        names.push($(this).attr("id"));
+                    });
+
+                    $.ajax({
+                        type: 'GET',
+                        data: {listUser : names.toString() },
+                        url: '@Url.Action("BlockUser", "Dashboard")',
+                        success: function (result) {
+                            $('#action_result').html(result);
+                        }
+                    });
+                });
+                $('#xoataikhoan').click(function () {
+                    var names = [];
+                    $("#search_result div div div input:checked").each(function () {
+                        names.push($(this).attr("id"));
+                    });
+
+                    $.ajax({
+                        type: 'GET',
+                        data: { listUser: names.toString() },
+                        url: '@Url.Action("DeleteUser", "Dashboard")',
+                        success: function (result) {
+                            $('#action_result').html(result);
+                        }
+                    });
+                });
+            });
+        </script>
+    </div>
+</div>
