@@ -60,3 +60,4 @@ D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Mvc.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.pdb
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\Microsoft.Web.Infrastructure.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.csprojResolveAssemblyReference.cache
