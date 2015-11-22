@@ -139,6 +139,5 @@ D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Deployment
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Razor.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Helpers.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Mvc.xml
-D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.csprojResolveAssemblyReference.cache
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.pdb
