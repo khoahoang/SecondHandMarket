@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TraoDoiDoCuModelStoreContainer" CdmEntityContainer="TraoDoiDoCuEntities">
-    <EntitySetMapping Name="Categories">
+    <EntitySetMapping Name="Category">
       <EntityTypeMapping TypeName="TraoDoiDoCuModel.Category">
         <MappingFragment StoreEntitySet="Category">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -11,7 +11,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Products">
+    <EntitySetMapping Name="Product">
       <EntityTypeMapping TypeName="TraoDoiDoCuModel.Product">
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -28,10 +28,8 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="TraoDoiDoCuModel.User">
+      <EntityTypeMapping TypeName="TraoDoiDoCuModel.Users">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="BanTime" ColumnName="BanTime" />
-          <ScalarProperty Name="BanDate" ColumnName="BanDate" />
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="PassWord" ColumnName="PassWord" />
@@ -42,18 +40,7 @@
           <ScalarProperty Name="Ban" ColumnName="Ban" />
           <ScalarProperty Name="Rating" ColumnName="Rating" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="ActiveCode" ColumnName="ActiveCode" />
-          <ScalarProperty Name="ResetPassword" ColumnName="ResetPassword" />
-          <ScalarProperty Name="DateRequest" ColumnName="DateRequest" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="GlobalDatas">
-      <EntityTypeMapping TypeName="TraoDoiDoCuModel.GlobalData">
-        <MappingFragment StoreEntitySet="GlobalDatas">
-          <ScalarProperty Name="Content" ColumnName="Content" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ReportID" ColumnName="ReportID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -1,0 +1,17 @@
+﻿@using TraoDoiDoCu.Models;
+@model List<ProductImage>
+
+<div class="gallery">
+    <div class="gallery_list">
+        <ul>
+@foreach (var item in Model)
+{
+    <li class="gallery_list_item">
+        <a class="preview" href="@Url.Content("~/Content/images/ProductImage/"+item.ImageLink)">
+            <img src="@Url.Content("~/Content/images/ProductImage/"+item.ImageLink)" alt="gallery thumbnail" width="70" height="70" />
+        </a>
+            </li>
+}
+        </ul>
+    </div>
+</div>

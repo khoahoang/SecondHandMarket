@@ -1,0 +1,179 @@
+﻿@using TraoDoiDoCu.Models;
+@model Users
+@{
+    ViewBag.Title = "DirectToEditableUserInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CHỈNH SỬA THÔNG TIN TÀI KHOẢN</h2>
+
+@using (Html.BeginForm("UpdateUserInfo", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.ValidationSummary(true)
+    
+    <div class="col-md-9">
+    <div class="user-information">
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th id="table-first-column">THÔNG TIN TÀI KHOẢN</th>
+                        <th id="table-second-column"></th>
+                        <th id="table-third-column"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tên tài khoản</td>
+                        <td>@Model.UserName</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Họ</td>
+                        <td>
+                            <div class="col-xs-5">
+                                <input class="form-control" id="edit-firstname" type="text" name="FirstName" value="@Model.FirstName" />
+                                @*@Html.EditorFor(x => x.FirstName)*@
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Tên</td>
+                        <td>
+                            <div class="col-xs-5">
+                                <input class="form-control" id="edit-lastname" type="text" name="LastName" value="@Model.LastName" />
+                                       @*@Html.EditorFor(x => x.LastName)*@
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="contact-infomation">
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th id="table-first-column">THÔNG TIN LIÊN HỆ</th>
+                        <th id="table-second-column"></th>
+                        <th id="table-third-column"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email</td>
+                        <td>
+                            <div class="col-xs-5">
+                                <input class="form-control" id="edit-email" name="Email" type="text" value="@Model.Email" />
+                                       @*@Html.EditorFor(x => x.Email)*@
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại</td>
+                        <td>
+                            <div class="col-xs-5">
+                                <input class="form-control" id="edit-phonenumber" name="PhoneNumber" type="text" value="@Model.Phone" />
+                                       @*@Html.EditorFor(x => x.Phone)*@
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="account-management">
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th id="table-first-column">BẢO MẬT</th>
+                        <th id="table-second-column"></th>
+                        <th id="table-third-column"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mật khẩu hiện tại</td>
+                        <td>
+                            <div class="col-xs-5">
+                                <input class="form-control" id="edit-current-password" name="CurrentPassword" type="password" />
+                                       @*@Html.EditorFor(x => x.PassWord)*@
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Mật khẩu mới</td>
+                        <td>
+                            <div class="col-xs-5">
+                                <input class="form-control" id="edit-new-password" name="NewPassword" type="password" />
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Xác nhận mật khẩu mới</td>
+                        <td>
+                            <div class="col-xs-5">
+                                <input class="form-control" id="confirm-new-password" name="NewPassword_confirm" type="password" />
+                            </div>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Xóa tài khoản</td>
+                        <td></td>
+                        <td><button type="button" class="btn btn-primary" onclick="confirmDeactiveUser()">Xóa</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="info-change-confirm">
+        <div class="confirm-button">
+            <button type="submit" class="btn btn-primary" id="OK-button">Ok</button>
+            @*<button type="button" class="btn btn-deafault" id="Cancel-button">Cancel</button>*@
+        </div>
+    </div>
+    
+    @*xác nhận deactive tài khoản*@
+    <script>
+        function confirmDeactiveUser() {
+            var x;
+            if (confirm("Bạn có chắc chắn muốn xóa tài khoản?") == true) {
+                window.location.href = "@Url.Action("DeleteUser","Account")";
+            }
+            else
+                x = false;
+        }
+    </script>
+
+
+    @*xác nhận thay đổi thông tin cá nhân*@
+    <script>
+        function confirmUpdateInfo()
+        {
+            var result
+            if(confirm("Tài khoản của bạn sẽ được cập nhật thông tin mới.")== true)
+            {
+                window.location.href = "@Url.Action("UpdateUserInfo", "Account", Model)";
+            }
+        }
+    </script>
+</div>
+}
+
+

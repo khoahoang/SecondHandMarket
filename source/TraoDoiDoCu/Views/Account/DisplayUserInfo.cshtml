@@ -1,0 +1,108 @@
+﻿
+@using TraoDoiDoCu.Models;
+@model Users
+@{
+    ViewBag.Title = "DisplayUserInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>THÔNG TIN TÀI KHOẢN</h2>
+
+<div class="col-md-9">
+    <div class="user-information">
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th id="table-first-column">THÔNG TIN TÀI KHOẢN</th>
+                        <th id="table-second-column"></th>
+                        <th id="table-third-column"><a href="@Url.Action("DirectToEditableUserInfo", "Account")"> CHỈNH SỬA</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tên tài khoản</td>
+                        <td>@Model.UserName</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Họ</td>
+                        <td>@Model.FirstName</td>
+                        <td></td>
+                    </tr>
+
+                    <tr>
+                        <td>Tên</td>
+                        <td>@Model.LastName</td>
+                        <td></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="contact-infomation">
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th id="table-first-column">THÔNG TIN LIÊN HỆ</th>
+                        <th id="table-second-column"></th>
+                        <th id="table-third-column"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email</td>
+                        <td>@Model.Email</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Số điện thoại</td>
+                        <td>@Model.Phone</td>
+                        <td></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="account-management">
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th id="table-first-column">BẢO MẬT</th>
+                        <th id="table-second-column"></th>
+                        <th id="table-third-column"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mật khẩu</td>
+                        <td>************</td>
+                        <td></td>
+                    </tr>
+                    @*<tr>
+                        <td>Xóa tài khoản</td>
+                        <td></td>
+                        <td></td>
+                    </tr>*@
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @*<div class="info-change-confirm">
+        <div class="confirm-button">
+            <button type="button" class="btn btn-primary" id="OK-button">Ok</button>
+            <button type="button" class="btn btn-deafault" id="Cancel-button">Cancel</button>
+        </div>
+    </div>*@
+
+
+</div>
+

@@ -22,6 +22,8 @@
     <link href="~/Content/css/font-awesome.css" rel="stylesheet" />
     <link href="@Url.Content("~/Content/css/style.css")" rel="stylesheet">
 
+    <script src="~/Scripts/jquery/jquery-2.1.4.min.js"></script>
+
     <script type="text/javascript">
         function next(currentId) {
             var nextId = currentId + 1;
@@ -68,7 +70,7 @@
                         <b>
                             @if (Request.IsAuthenticated)
                             {
-                               <text>Xin chào,</text> <a style="margin-right: 14px; color: white"href="@Url.Action("Index", "ManageAccount", new { customername = User.Identity.Name }) ">@Html.Encode(User.Identity.Name) </a>    
+                               <text>Xin chào,</text> <a style="margin-right: 14px; color: white"href="@Url.Action("DisplayUserInfo", "Account", new { UserName = User.Identity.Name }) ">@Html.Encode(User.Identity.Name) </a>    
                                 
                                 @Html.ActionLink("Đăng xuất", "Logout", "Account")
                             }
@@ -95,7 +97,7 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
             <li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="4"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li> 
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
@@ -153,8 +155,36 @@
 
     <!-- Main content-->
     <div class="main-content">
-        @RenderBody()
-    </div>    
+        <table class="table-condensed" style="width: 100%">
+            <tr>
+                <td style="width: 15%; vertical-align: top">
+                    <div class="list-group">
+                        <label class="label-info">DANH MỤC</label>
+                        @using (var db = new TraoDoiDoCu.Models.TraoDoiDoCuEntities())
+                        {
+                            foreach (var item in db.Category)
+                            {
+                                <a href="@Url.Action("Categories", "Home")?name=@item.Name" class="list-group-item">@item.Name</a>
+                            }
+                        }
+                    </div>
+                </td>
+                <td style="width: 70%; vertical-align: top; padding-left: 10px; padding-right: 10px">
+                    @RenderBody()
+                </td>
+                <td style="width: 15%; vertical-align: top">
+                    <label class="label-info">TOP RATING</label>
+                    @using (var db = new TraoDoiDoCu.Models.TraoDoiDoCuEntities())
+                    {
+                        foreach (var item in db.Users)
+                        {
+                            <a href="#" class="list-group-item">@item.UserName</a>
+                        }
+                    }
+                </td>
+            </tr>
+        </table>
+    </div>       
     
     <!-- FOOTER -->
     <footer>
@@ -165,6 +195,7 @@
 
     <!-- jQuery -->
     <script type="text/javascript" src="@Url.Content("~/Scripts/jquery/jquery-1.11.3.min.js")"></script>
+    <script src="~/Scripts/jquery/jquery.preview_images.js"></script>
     <!-- boostrap -->
     <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap/bootstrap.min.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap/bootstrap-select.min.js")"></script>

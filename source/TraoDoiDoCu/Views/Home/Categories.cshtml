@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Categories";
+}
+
+@using PagedList;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<TraoDoiDoCu.Models.Product>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<script>
+    function Search() {
+        var searchString = document.getElementById("searchString").value;
+        var categories = document.getElementById("categories").value;
+        var position = document.getElementById("position").value;
+
+        location.assign("@Url.Action("Search", "Home")?searchStr=" + searchString + "&name=" + categories + "&pos=" + position);
+    }
+</script>
+
+<h2>Trang chủ</h2>
+<table style="width: 100%">
+    <tr>
+        <td style="width: 30%; padding-right: 20px">
+            <input id="searchString" class="form-control" name="name-product" placeholder="Nhập tên mặt hàng">
+        </td>
+        <td style="width: 30%; padding-right: 20px">
+            <select id="categories" class="form-control" name="name-category" placeholder="Loại mặt hàng">
+                <option selected>Tất cả</option>
+                @using (var db = new TraoDoiDoCu.Models.TraoDoiDoCuEntities())
+                {
+                    foreach (var item in db.Category)
+                    {
+                        <option>@item.Name</option>
+                    }
+                }
+            </select>
+        </td>
+        <td style="width: 30%; padding-right: 20px">
+            <select id="position" class="form-control" name="name-address" placeholder="Địa điểm">
+                <option>TP HCM</option>
+                <option>Hà Nội</option>
+            </select>
+        </td>
+        <td style="width: 10%">
+            <button type="submit" class="btn btn-success" onclick="Search()">Tìm kiếm</button>
+        </td>
+    </tr>
+</table>
+<table style="width: 100%">
+    <tr>
+        <td style="text-align:right">
+            Sắp xếp:
+            <span class="sort-btn btn"><i class="fa fa-clock-o fa-lg"></i> @Html.ActionLink("  Ngày đăng", "Categories", new { name = ViewBag.CurrentName, sortOrder = ViewBag.DateSortParm })</span>
+            <span class="sort-btn btn"><i class="fa fa-money fa-lg"></i> @Html.ActionLink("  Giá", "Categories", new { name = ViewBag.CurrentName, sortOrder = ViewBag.CostSortParm })</span>
+        </td>
+    </tr>
+</table>
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <th>
+                <div class="row product-row">
+                    <div class="col-md-3 img-portfolio">
+                        <a href="#">
+                            <img class="img-responsive img-hover" src="http://placehold.it/400x300" alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-8 info">
+                        <h4>Tên món đồ: @item.Name</h4>
+                        <p>Giá: @item.Price</p>
+                        <p class="inline">Ngày đăng: @item.PostingDate</p>
+                        <p class="align-right">Nơi đăng: @item.Location</p>
+                    </div>
+                </div>
+            </th>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Categories", new { page, name = ViewBag.CurrentName }), PagedListRenderOptions.OnlyShowFivePagesAtATime);

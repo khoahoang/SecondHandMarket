@@ -1,0 +1,56 @@
+﻿@model TraoDoiDoCu.Models.Users
+
+    <div class="panel panel-info" >
+        <div class="panel-heading" align="center">Liên hệ</div>
+        <div class="panel-body" align="center">
+            <div class="poster_avatar"><img class="img-rounded" alt="Avatar" src="~/Content/images/avatar.png" width="100" height="100"></img></div>
+            <button type="button" class="btn btn-success" data-container="body" data-toggle="popover" data-title="@Model.UserName" data-placement="bottom" data-content="@Model.Phone">Điện thoại</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#sendMailModal" data-whatever="mdo">Gửi email</button>
+            <div class="modal fade" id="sendMailModal" tabindex="-1" role="dialog" aria-labelledby="sendMailModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="sendMailModalLabel">Gửi mail</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="sender-name" class="control-label">Người gửi:</label>
+                                    <input type="text" class="form-control" id="sender-name">
+                                    <label for="sender-phone" class="control-label">Số điện thoại:</label>
+                                    <input type="text" class="form-control" id="sender-phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-text" class="control-label">Nội dung:</label>
+                                    <textarea class="form-control" id="message-text"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                            <button type="button" class="btn btn-primary">Gửi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+<script type="text/javascript">
+    $('#sendMailModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) // Button that triggered the modal
+        var recipient = button.data('whatever') // Extract info from data-* attributes
+        // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+        // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        var modal = $(this)
+        modal.find('.modal-title').text('New message to ' + recipient)
+        modal.find('.modal-body input').val(recipient)
+    })
+</script>
+

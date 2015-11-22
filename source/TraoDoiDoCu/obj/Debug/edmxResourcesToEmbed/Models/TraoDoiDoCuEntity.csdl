@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TraoDoiDoCuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PictureCategory" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Product_Category" FromRole="Category" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Picture" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <Property Name="Available" Type="Boolean" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="Location" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="Category" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Product_Users" FromRole="Product" ToRole="Users" />
+    <NavigationProperty Name="Comment" Relationship="TraoDoiDoCuModel.FK_Comment_Product" FromRole="Product" ToRole="Comment" />
+    <NavigationProperty Name="FollowProduct" Relationship="TraoDoiDoCuModel.FK_FollowProduct_Product" FromRole="Product" ToRole="FollowProduct" />
+    <NavigationProperty Name="ProductImage" Relationship="TraoDoiDoCuModel.FK_ProductImage_Product" FromRole="Product" ToRole="ProductImage" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="PassWord" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Admin" Type="Boolean" />
+    <Property Name="Ban" Type="Boolean" />
+    <Property Name="Rating" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ReportID" Type="Int32" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Product_Users" FromRole="Users" ToRole="Product" />
+    <Property Name="ActiveCode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ResetPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DateRequest" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Comment" Relationship="TraoDoiDoCuModel.FK_Comment_Users" FromRole="Users" ToRole="Comment" />
+    <NavigationProperty Name="FollowProduct" Relationship="TraoDoiDoCuModel.FK_FollowProduct_Users" FromRole="Users" ToRole="FollowProduct" />
+    <NavigationProperty Name="Messages" Relationship="TraoDoiDoCuModel.PK_get_id" FromRole="Users" ToRole="Messages" />
+    <NavigationProperty Name="Messages1" Relationship="TraoDoiDoCuModel.PK_set_id" FromRole="Users" ToRole="Messages" />
+    <Property Name="BanDate" Type="DateTime" Precision="3" />
+    <Property Name="BanTime" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Product_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TraoDoiDoCuEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Category" EntityType="Self.Category" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Users" Association="Self.FK_Product_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <EntitySet Name="Comment" EntityType="TraoDoiDoCuModel.Comment" />
+    <EntitySet Name="FollowProduct" EntityType="TraoDoiDoCuModel.FollowProduct" />
+    <EntitySet Name="ProductImage" EntityType="TraoDoiDoCuModel.ProductImage" />
+    <AssociationSet Name="FK_Comment_Product" Association="TraoDoiDoCuModel.FK_Comment_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Users" Association="TraoDoiDoCuModel.FK_Comment_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FollowProduct_Product" Association="TraoDoiDoCuModel.FK_FollowProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="FollowProduct" EntitySet="FollowProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FollowProduct_Users" Association="TraoDoiDoCuModel.FK_FollowProduct_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="FollowProduct" EntitySet="FollowProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductImage_Product" Association="TraoDoiDoCuModel.FK_ProductImage_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductImage" EntitySet="ProductImage" />
+    </AssociationSet>
+    <EntitySet Name="Messages" EntityType="TraoDoiDoCuModel.Messages" />
+    <AssociationSet Name="PK_get_id" Association="TraoDoiDoCuModel.PK_get_id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="PK_set_id" Association="TraoDoiDoCuModel.PK_set_id">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <EntitySet Name="GlobalDatas" EntityType="TraoDoiDoCuModel.GlobalDatas" />
+  </EntityContainer>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="TextContent" Type="String" Nullable="false" MaxLength="800" FixedLength="false" Unicode="true" />
+    <Property Name="PostingDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Product" Relationship="TraoDoiDoCuModel.FK_Comment_Product" FromRole="Comment" ToRole="Product" />
+    <NavigationProperty Name="Users" Relationship="TraoDoiDoCuModel.FK_Comment_Users" FromRole="Comment" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="FollowProduct">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="TraoDoiDoCuModel.FK_FollowProduct_Product" FromRole="FollowProduct" ToRole="Product" />
+    <NavigationProperty Name="Users" Relationship="TraoDoiDoCuModel.FK_FollowProduct_Users" FromRole="FollowProduct" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="ProductImage">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="ImageLink" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="TraoDoiDoCuModel.FK_ProductImage_Product" FromRole="ProductImage" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_Comment_Product">
+    <End Type="TraoDoiDoCuModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="TraoDoiDoCuModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Users">
+    <End Type="TraoDoiDoCuModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="TraoDoiDoCuModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FollowProduct_Product">
+    <End Type="TraoDoiDoCuModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="TraoDoiDoCuModel.FollowProduct" Role="FollowProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FollowProduct">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FollowProduct_Users">
+    <End Type="TraoDoiDoCuModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="TraoDoiDoCuModel.FollowProduct" Role="FollowProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="FollowProduct">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductImage_Product">
+    <End Type="TraoDoiDoCuModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="TraoDoiDoCuModel.ProductImage" Role="ProductImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductImage">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Sender" Type="Int32" Nullable="false" />
+    <Property Name="ID_Reciver" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Datepost" Type="DateTime" Precision="3" />
+    <Property Name="IsRead" Type="Boolean" />
+    <NavigationProperty Name="Users" Relationship="TraoDoiDoCuModel.PK_get_id" FromRole="Messages" ToRole="Users" />
+    <NavigationProperty Name="Users1" Relationship="TraoDoiDoCuModel.PK_set_id" FromRole="Messages" ToRole="Users" />
+  </EntityType>
+  <Association Name="PK_get_id">
+    <End Type="TraoDoiDoCuModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="TraoDoiDoCuModel.Messages" Role="Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="ID_Sender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_set_id">
+    <End Type="TraoDoiDoCuModel.Users" Role="Users" Multiplicity="1" />
+    <End Type="TraoDoiDoCuModel.Messages" Role="Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="ID_Reciver" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="GlobalDatas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Content" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

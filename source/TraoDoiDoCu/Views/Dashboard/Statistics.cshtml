@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Thống kê trong tháng";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Statistics</h2>
+<div class="col-md-9">
+    <div class="row">
+        <div class="panel panel-default">
+            <a href="#page-stats" class="panel-heading" data-toggle="collapse">Thống kê trong tháng</a>
+            <div id="page-stats" class="panel-collapse panel-body collapse in">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="knob-container">
+                            <input class="knob" data-width="200" data-min="0" data-max="3000" data-displayprevious="true" value="@ViewBag.SL_acc" data-fgcolor="#92A3C2" data-readonly=true;>
+                            <h3 class="text-muted text-center"><a href="@Url.Action("Sta_acc", "Dashboard", new { Year = 0 })"> Accounts</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="knob-container">
+                            <input class="knob" data-width="200" data-min="0" data-max="8800" data-displayprevious="true" value="@ViewBag.SL_post" data-fgcolor="#92A3C2" data-readonly=true;>
+                            <h3 class="text-muted text-center"> <a href="@Url.Action("Sta_post", "Dashboard", new { Year = 0 })">Posts</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class=" knob-container">
+                            <input class="knob" data-width="200" data-min="0" data-max="1500" data-displayprevious="true" value="@ViewBag.SL_mess" data-fgcolor="#92A3C2" data-readonly=true;>
+                            <h3 class="text-muted text-center"><a href="@Url.Action("Sta_mess", "Dashboard", new { Year = 0 })"> Messengers</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!--/row-->
+    <script src="@Url.Content("~/Scripts/jquery/init-chart.js")"></script>
+</div>

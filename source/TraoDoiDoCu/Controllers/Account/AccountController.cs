@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using TraoDoiDoCu.BusinessLayer;
 using TraoDoiDoCu.Models.Account;
+using TraoDoiDoCu.Models;
 
 namespace TraoDoiDoCu.Controllers.Account
 {
@@ -181,6 +182,94 @@ namespace TraoDoiDoCu.Controllers.Account
                 }
             }
             return View(resetPassVM);
+        }
+
+        // POST: /Account/DisplayUserInfo
+        //[HttpPost]
+        public ActionResult DisplayUserInfo(string Username)
+        {
+            int UserID = bus.getIDFromUsername(Username);
+            Session["UserID"] = UserID;
+            var user = bus.getUserInfoBUS(UserID);
+            //Change code here
+            return View(user);
+        }
+
+        public ActionResult DirectToEditableUserInfo()
+        {
+            int UserID = (int)Session["UserID"];
+            var user = bus.getUserInfoBUS(UserID);
+            return View(user);
+        }
+
+        //[HttpPost]
+        public ActionResult DeleteUser()
+        {
+            int UserID = (int)Session["UserID"];
+            bool result = bus.deleteUser(UserID);
+            if (result == true)
+            {
+                Session["UserID"] = null;
+                return RedirectToAction("Index", "Home");
+            }
+            else if (result == false)
+            {
+                ViewData["Error"] = "Xóa người dùng không thành công";
+
+            }
+            return RedirectToAction("DisplayUserInfo", "Account", new { UserID = (int)Session["UserID"] });
+        }
+
+        // GET: /Account/GetUpdatedUserInfo
+        //public ActionResult UpdateUserInfo()
+        //{
+
+        //    return View();
+
+        //}
+
+
+        [HttpPost]
+        public ActionResult UpdateUserInfo()
+        {
+
+            if (Request.Form.Count > 0)
+            {
+                Users updatedUserInfo = new Users();
+                updatedUserInfo.FirstName = Request.Form["FirstName"];
+                updatedUserInfo.LastName = Request.Form["LastName"];
+                updatedUserInfo.Email = Request.Form["Email"];
+                updatedUserInfo.Phone = Request.Form["PhoneNumber"];
+                updatedUserInfo.PassWord = Request.Form["CurrentPassword"];
+                string newPassword = Request.Form["NewPassword"];
+                string newPassword_confirm = Request.Form["NewPassword_confirm"];
+                if (updatedUserInfo.PassWord != null && updatedUserInfo.PassWord != newPassword && newPassword != null && newPassword_confirm != null && newPassword == newPassword_confirm)
+                {
+                    if (bus.checkInvalidPassword((int)Session["UserID"], updatedUserInfo.PassWord))
+                    {
+                        updatedUserInfo.PassWord = newPassword;
+
+                    }
+
+                }
+                bus.updateUserInfoBUS((int)Session["UserID"], updatedUserInfo);
+            }
+
+            return RedirectToAction("DisplayUserInfo", "Account", new { UserID = (int)Session["UserID"] });
+        }
+
+
+        public ActionResult DisplayFollowedProduct(string Username)
+        {
+            var lstOfFollowedProduct = bus.getProductsFollowed(bus.getIDProductsFollowed(Username));
+            return View(lstOfFollowedProduct);
+
+        }
+
+        public ActionResult DeleteAFollowedProduct(int followedProductID)
+        {
+            bus.deleteAFollowedProduct(followedProductID);
+            return RedirectToAction("DisplayFollowedProduct", "Account", new { UserID = (int)Session["UserID"] });
         }
 	}
 }

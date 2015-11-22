@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Thống kê tin nhắn";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h2>Sta_mess</h2>
+
+<div class="col-md-9">
+    <div class="col-md-2">
+        @*<select class="form-control" id="year" name="year">
+
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+
+            </select>*@
+
+        @using (Html.BeginForm("Sta_mess", "Dashboard", FormMethod.Post))
+        {
+            <select id="year" class="form-control" size="1" name="year">
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+            </select>
+
+            <input type="submit" value="Submit" class="form-control" />
+        }
+
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <p>Tổng số tin nhắn: @ViewBag.SSL_mess tin nhắn </p>
+    <br />
+    <br />
+
+
+
+
+
+</div><!--/row-->
+
+<div class="col-md-9">
+    <div class="chart">
+        <div class="column-container">
+            @{  Dictionary<String, Int32> info = new Dictionary<string, int>();
+              info = ViewBag.Chart_mess;
+              var tmp = info.Keys.ToList();
+            }
+            @for (int i = 0; i < 12; i++)
+            {
+                <div class="column">
+                    <div class="fill" style="height: @info[tmp[i]]%"></div>
+                    <p class="rotulo">@tmp[i]</p>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

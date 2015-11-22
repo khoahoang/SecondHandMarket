@@ -14,18 +14,28 @@ namespace TraoDoiDoCu.Models
     
     public partial class Product
     {
+        public Product()
+        {
+            this.Comment = new HashSet<Comment>();
+            this.FollowProduct = new HashSet<FollowProduct>();
+            this.ProductImage = new HashSet<ProductImage>();
+        }
+    
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int CategoryID { get; set; }
-        public int Price { get; set; }
+        public Nullable<int> CategoryID { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public string Picture { get; set; }
-        public System.DateTime PostingDate { get; set; }
+        public Nullable<System.DateTime> PostingDate { get; set; }
         public Nullable<bool> Available { get; set; }
-        public int UserID { get; set; }
+        public Nullable<int> UserID { get; set; }
         public string Location { get; set; }
     
         public virtual Category Category { get; set; }
-        public virtual User User { get; set; }
+        public virtual Users Users { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
+        public virtual ICollection<FollowProduct> FollowProduct { get; set; }
+        public virtual ICollection<ProductImage> ProductImage { get; set; }
     }
 }

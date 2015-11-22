@@ -8,6 +8,7 @@ using System.Text;
 using System.Web;
 using TraoDoiDoCu.DataAcessLayer;
 using TraoDoiDoCu.Models.Account;
+using TraoDoiDoCu.Models;
 
 namespace TraoDoiDoCu.BusinessLayer
 {
@@ -129,8 +130,66 @@ namespace TraoDoiDoCu.BusinessLayer
         {
             return dal.ResetPassword(ressetPassVM);            
         }
-        #endregion        
-    
-        
+        #endregion
+
+        #region GetAndUpdateUserInfo
+        //What I need:
+        // - LoginIsValid
+        // - GetUserInfo
+        public Users getUserInfoBUS(int userID)
+        {
+
+            Users userInfo = new Users();
+            userInfo = dal.getUserInfo(userID);
+            return userInfo;
+        }
+        // - UpdateUserInfo
+        public bool updateUserInfoBUS(int userID, Users newUpdatedUser)
+        {
+
+            return dal.updateUserInfo(userID, newUpdatedUser);
+        }
+
+
+        #endregion
+
+        #region DeleteUser
+
+        public bool deleteUser(int userID)
+        {
+            return dal.deleteUserAccount(userID);
+        }
+        #endregion
+
+        public bool checkInvalidPassword(int userID, string password)
+        {
+            password = Hash(password);
+            return dal.checkInvalidPassword(userID, password);
+        }
+
+        public int getIDFromUsername(string username)
+        {
+            return dal.getIDFromUsername(username);
+        }
+
+        public List<int> getIDProductsFollowed(string userName)
+        {
+            return dal.getIDProductsFollowed(userName);
+        }
+
+        public List<Product> getProductsFollowed(List<int> lstOfProductIDs)
+        {
+            return dal.getProductsFollowed(lstOfProductIDs);
+        }
+
+        public bool deleteAFollowedProduct(int userID, int productID)
+        {
+            return dal.deleteAFollowedProduct(userID, productID);
+        }
+
+        public bool deleteAFollowedProduct(int followedProductID)
+        {
+            return dal.deleteAFollowedProduct(followedProductID);
+        }
     }
 }

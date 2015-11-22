@@ -38,12 +38,88 @@ E:\Data\Dropbox\Work space\A4\semaster1\QuanLyDuAn\BigGroup\SecondHandMarket\sou
 E:\Data\Dropbox\Work space\A4\semaster1\QuanLyDuAn\BigGroup\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.csprojResolveAssemblyReference.cache
 E:\Data\Dropbox\Work space\A4\semaster1\QuanLyDuAn\BigGroup\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.dll
 E:\Data\Dropbox\Work space\A4\semaster1\QuanLyDuAn\BigGroup\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.pdb
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.csprojResolveAssemblyReference.cache
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\TraoDoiDoCu.dll.config
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\TraoDoiDoCu.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\TraoDoiDoCu.pdb
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.SqlServer.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\PagedList.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\PagedList.Mvc.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Helpers.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Mvc.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Razor.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Deployment.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Razor.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.SqlServer.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\PagedList.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\PagedList.Mvc.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Razor.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Deployment.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Razor.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Helpers.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Mvc.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.pdb
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\Newtonsoft.Json.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Net.Http.Formatting.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Http.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Http.WebHost.dll
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\Newtonsoft.Json.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Net.Http.Formatting.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Http.xml
+E:\GIT CODE\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Http.WebHost.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\TraoDoiDoCu.dll.config
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\TraoDoiDoCu.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\TraoDoiDoCu.pdb
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\EntityFramework.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\EntityFramework.SqlServer.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\Newtonsoft.Json.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\PagedList.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\PagedList.Mvc.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Net.Http.Formatting.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Helpers.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Http.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Http.WebHost.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Mvc.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Razor.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Webpages.Deployment.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Webpages.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Webpages.Razor.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\EntityFramework.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\EntityFramework.SqlServer.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\Newtonsoft.Json.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\PagedList.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\PagedList.Mvc.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Net.Http.Formatting.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Http.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Http.WebHost.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Razor.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Webpages.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Webpages.Deployment.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Webpages.Razor.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Helpers.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\System.Web.Mvc.xml
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.csprojResolveAssemblyReference.cache
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.dll
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.pdb
+D:\GitHub\Nhom10_Release1\source\TraoDoiDoCu\bin\Microsoft.Web.Infrastructure.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\TraoDoiDoCu.dll.config
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\TraoDoiDoCu.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\TraoDoiDoCu.pdb
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.SqlServer.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\Microsoft.Web.Infrastructure.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\Newtonsoft.Json.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\PagedList.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\PagedList.Mvc.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Net.Http.Formatting.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Helpers.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Http.dll
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Http.WebHost.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Mvc.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Razor.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Deployment.dll
@@ -51,13 +127,18 @@ D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Razor.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\EntityFramework.SqlServer.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\Newtonsoft.Json.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\PagedList.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\PagedList.Mvc.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Net.Http.Formatting.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Http.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Http.WebHost.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Razor.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Deployment.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Webpages.Razor.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Helpers.xml
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\System.Web.Mvc.xml
+D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.csprojResolveAssemblyReference.cache
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.dll
 D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.pdb
-D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\bin\Microsoft.Web.Infrastructure.dll
-D:\GitHub\SecondHandMarket\source\TraoDoiDoCu\obj\Debug\TraoDoiDoCu.csprojResolveAssemblyReference.cache

@@ -1,0 +1,30 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model PagedList.PagedList<TraoDoiDoCu.Models.Comment>
+
+@foreach(var item in Model)
+{
+    <div class="commentbox">
+        <div class="avatar_box">
+            <img class="avatar" alt="Avatar" src="~/Content/images/avatar.png"></img>
+            <p class="username">@item.Users.UserName</p>
+        </div>
+        <div class="comment_body">
+            <span class="tip tip-left"></span>
+            <div class="message">
+                <span>@item.TextContent</span>                
+            </div>
+            <span class="date">@item.PostingDate</span>
+        </div>
+    </div>
+}
+
+<div style="clear:both"></div>
+<div class="MenuTrang">
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Details", new { id = ViewBag.productID, page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>
