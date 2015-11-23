@@ -200,7 +200,7 @@
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\ResetPasswordViewModel.cs" />
     <Compile Include="Models\Account\UpdateUserInfoViewModel.cs" />
-    <Compile Include="Models\Account\UserModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\Category.cs">
       <DependentUpon>TraoDoiDoCuEntity.tt</DependentUpon>
     </Compile>

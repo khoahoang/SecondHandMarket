@@ -33,6 +33,14 @@
         <div id="action_result">
 
         </div>
+        <div class="row search_user_result">
+            <div class="col-md-9">
+                <button type="button" id="nangcapadmin" class="btn btn-warning btn-xulytk">Admin</button>
+                <button type="button" id="khoataikhoan" class="btn btn-warning btn-xulytk">Khóa Tài Khoản</button>
+                <button type="button" id="xoataikhoan" class="btn btn-danger btn-xulytk">Xóa Tài Khoản</button>
+                <button type="button" id="nangcapadmin" class="btn btn-info btn-xulytk">Hủy Bỏ</button>
+            </div>
+        </div>
         <script>
             $(document).ready(function () {
                 $('#khoataikhoan').click(function () {
@@ -60,6 +68,21 @@
                         type: 'GET',
                         data: { listUser: names.toString() },
                         url: '@Url.Action("DeleteUser", "Dashboard")',
+                        success: function (result) {
+                            $('#action_result').html(result);
+                        }
+                    });
+                });
+                $('#nangcapadmin').click(function () {
+                    var names = [];
+                    $("#search_result div div div input:checked").each(function () {
+                        names.push($(this).attr("id"));
+                    });
+
+                    $.ajax({
+                        type: 'GET',
+                        data: { listUser: names.toString() },
+                        url: '@Url.Action("UpgradeAdmin", "Dashboard")',
                         success: function (result) {
                             $('#action_result').html(result);
                         }

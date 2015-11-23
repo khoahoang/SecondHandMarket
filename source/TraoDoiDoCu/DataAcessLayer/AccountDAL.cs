@@ -16,6 +16,8 @@ namespace TraoDoiDoCu.DataAcessLayer
         #region # phần login
         public bool LoginIsValid(string UserName, string HashPassword)
         {
+
+            
             Users user = db.Users.FirstOrDefault(x => x.UserName == UserName && x.PassWord == HashPassword);
             if (user != null)
                 return true;

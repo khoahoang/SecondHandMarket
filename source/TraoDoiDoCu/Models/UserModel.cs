@@ -9,6 +9,19 @@ namespace TraoDoiDoCu.Models
     {
         TraoDoiDoCuEntities tde = new TraoDoiDoCuEntities();
 
+        public bool SendMessage(int idSender, int idReciver, string content)
+        {
+           
+            Messages mess = new Messages();
+            mess.Content = content;
+            mess.ID_Sender = idSender;
+            mess.ID_Reciver = idReciver;
+
+            tde.Messages.Add(mess);
+            tde.SaveChangesAsync();
+            return true;
+        }
+
         public List<String> Search(string name)
         {
             return tde.Users.Where(p => p.UserName.Contains(name)).Select(p => p.UserName).ToList();
@@ -16,7 +29,7 @@ namespace TraoDoiDoCu.Models
 
         public void BanAccount(List<String> username)
         {
-            foreach (User a in tde.Users)
+            foreach (Users a in tde.Users)
             {
                 if (username.Contains(a.UserName))
                 {
@@ -31,7 +44,7 @@ namespace TraoDoiDoCu.Models
 
         public void CheckBanAccount()
         {
-            foreach (User a in tde.Users)
+            foreach (Users a in tde.Users)
             {
                 if (DateTime.Compare(DateTime.Now, (DateTime)a.BanDate) > 30)
                 {
@@ -46,17 +59,30 @@ namespace TraoDoiDoCu.Models
 
         public void DeleteAccount(List<String> username)
         {
-            List<User> users = new List<User>();
-            foreach (User a in tde.Users)
+            List<Users> users = new List<Users>();
+            foreach (Users a in tde.Users)
             {
                 if (username.Contains(a.UserName))
                     users.Add(a);
             }
 
-            foreach (User a in users)
+            foreach (Users a in users)
                 tde.Users.Remove(a);
 
             tde.SaveChanges();
+        }
+
+        public void UpgradeAdmin(List<string> list)
+        {
+            foreach (Users a in tde.Users)
+            {
+                if (list.Contains(a.UserName))
+                {
+                    a.Admin = true;
+                }
+
+            }
+            tde.SaveChangesAsync();
         }
     }
 }

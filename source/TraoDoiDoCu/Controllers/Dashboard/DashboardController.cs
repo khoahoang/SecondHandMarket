@@ -57,6 +57,14 @@ namespace TraoDoiDoCu.Controllers.Dashboard
             return Content(html_result, "text/plain");
         }
 
+        public ActionResult UpgradeAdmin(string listUser)
+        {
+            string html_result = "Nâng Cấp Thành Công";
+            string[] users = listUser.Split(',');
+            UserModel um = new UserModel();
+            um.UpgradeAdmin(users.ToList());
+            return Content(html_result, "text/plain");
+        }
         public ActionResult DeleteUser(string listUser)
         {
             string html_result = "Xóa Thành Công";
@@ -97,14 +105,16 @@ namespace TraoDoiDoCu.Controllers.Dashboard
                 html_result += "</div>";
                 html_result += "</div>";
             }
-            html_result += "<br />";
-            html_result += "<div class=\"row search_user_result\">";
-            html_result += "<div class=\"col-md-8 col-md-offset-1\">";
-            html_result += "<button type=\"button\" id=\"khoataikhoan\" class=\"btn btn-warning btn-xulytk\">Khóa Tài Khoản</button>";
-            html_result += "<button type=\"button\" id=\"xoataikhoan\" class=\"btn btn-danger btn-xulytk\">Xóa Tài Khoản</button>";
-            html_result += "<button type=\"button\" class=\"btn btn-info btn-xulytk\">Hủy Bỏ</button>";
-            html_result += " </div>";
-            html_result += "</div>";
+
+            //html_result += "<br />";
+            //html_result += "<div class=\"row search_user_result\">";
+            //html_result += "<div class=\"col-md-9\">";
+            //html_result += "<button type=\"button\" id=\"nangcapadmin\" class=\"btn btn-warning btn-xulytk\">Admin</button>";
+            //html_result += "<button type=\"button\" id=\"khoataikhoan\" class=\"btn btn-warning btn-xulytk\">Khóa Tài Khoản</button>";
+            //html_result += "<button type=\"button\" id=\"xoataikhoan\" class=\"btn btn-danger btn-xulytk\">Xóa Tài Khoản</button>";
+            //html_result += "<button type=\"button\" class=\"btn btn-info btn-xulytk\">Hủy Bỏ</button>";
+            //html_result += " </div>";
+            //html_result += "</div>";
 
             return Content(html_result, "text/plain");
         }
