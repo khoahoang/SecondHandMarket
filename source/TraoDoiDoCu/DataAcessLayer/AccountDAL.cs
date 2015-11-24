@@ -16,14 +16,14 @@ namespace TraoDoiDoCu.DataAcessLayer
         #region # phần login
         public bool LoginIsValid(string UserName, string HashPassword)
         {
-            Users user = db.Users.FirstOrDefault(x => x.UserName == UserName && x.PassWord == HashPassword);
+            User user = db.Users.FirstOrDefault(x => x.UserName == UserName && x.PassWord == HashPassword);
             if (user != null)
                 return true;
             return false;
         }
         public bool IsActivedAccount(string UserName)
         {
-            Users user = db.Users.FirstOrDefault(x => x.UserName == UserName);
+            User user = db.Users.FirstOrDefault(x => x.UserName == UserName);
             if (user == null)
                 return false;
             else if (user.ActiveCode == "active")
@@ -35,14 +35,14 @@ namespace TraoDoiDoCu.DataAcessLayer
         #region # phần register
         public bool CheckExistenceAccount(string Email, string UserName)
         {
-            Users user = db.Users.FirstOrDefault(x => x.UserName == UserName || x.Email == Email);
+            User user = db.Users.FirstOrDefault(x => x.UserName == UserName || x.Email == Email);
             if (user == null)
                 return true;
             return false;
         }
         public string AddAccount(RegisterViewModel model)
         {            
-            Users user = new Users();
+            User user = new User();
             user.UserName = model.UserName;
             user.PassWord = model.Password;
             user.Email = model.Email;
@@ -51,7 +51,7 @@ namespace TraoDoiDoCu.DataAcessLayer
             user.LastName = model.LastName;
             user.Phone = model.Phone;
 
-            user.Product = null;
+            user.Products = null;
 
             string activation_code = Guid.NewGuid().ToString();
             user.ActiveCode = activation_code;
@@ -85,7 +85,7 @@ namespace TraoDoiDoCu.DataAcessLayer
         #region # phần active account
         public bool ActivateAccount(string UserName, String ActivationCode)
         {
-            Users user = db.Users.FirstOrDefault(x => x.UserName == UserName && x.ActiveCode == ActivationCode);
+            User user = db.Users.FirstOrDefault(x => x.UserName == UserName && x.ActiveCode == ActivationCode);
             if (user.UserName == null)
                 return false;
             user.ActiveCode = "active";
@@ -98,14 +98,14 @@ namespace TraoDoiDoCu.DataAcessLayer
         #region # phần forgot password
         public bool CheckMailExistence(string Email)
         {
-            Users user = db.Users.FirstOrDefault(x => x.Email == Email);
+            User user = db.Users.FirstOrDefault(x => x.Email == Email);
             if (user != null)
                 return true;
             return false;
         }
         public string SetUpResetPassword(string Email)
         {
-            Users user = db.Users.FirstOrDefault(x => x.Email == Email);
+            User user = db.Users.FirstOrDefault(x => x.Email == Email);
             string reset_pass_code = Guid.NewGuid().ToString();
             user.ResetPassword = reset_pass_code;
             DateTime time = new DateTime();
@@ -124,7 +124,7 @@ namespace TraoDoiDoCu.DataAcessLayer
         }
         public bool CheckResetPassword(string Email, string ResetCode)
         {
-            Users user = db.Users.FirstOrDefault(x => x.Email == Email && x.ResetPassword == ResetCode);
+            User user = db.Users.FirstOrDefault(x => x.Email == Email && x.ResetPassword == ResetCode);
             if (user != null)
             {
                 DateTime now = DateTime.Now;
@@ -139,7 +139,7 @@ namespace TraoDoiDoCu.DataAcessLayer
         }
         public bool ResetPassword(ResetPasswordViewModel ressetPassVM)
         {
-            Users user = db.Users.FirstOrDefault(x => x.Email == ressetPassVM.Email && x.ResetPassword == ressetPassVM.ResetCode);
+            User user = db.Users.FirstOrDefault(x => x.Email == ressetPassVM.Email && x.ResetPassword == ressetPassVM.ResetCode);
             if (user != null)
             {
                 try
@@ -163,9 +163,9 @@ namespace TraoDoiDoCu.DataAcessLayer
         #endregion
 
         #region phần Get User Infomation
-        public Users getUserInfo(int userID)
+        public User getUserInfo(int userID)
         {
-            Users result = new Users();
+            User result = new User();
             result = db.Users.FirstOrDefault(x => x.ID == userID);
             return result;
 
@@ -174,9 +174,9 @@ namespace TraoDoiDoCu.DataAcessLayer
         #endregion
 
         #region phần Update User Info
-        public bool updateUserInfo(int userID, Users newUserInfo)
+        public bool updateUserInfo(int userID, User newUserInfo)
         {
-            Users Target = db.Users.FirstOrDefault(x => x.ID == userID);
+            User Target = db.Users.FirstOrDefault(x => x.ID == userID);
             if (Target != null)
             {
                 if (newUserInfo.PassWord.Count() > 0)
@@ -203,7 +203,7 @@ namespace TraoDoiDoCu.DataAcessLayer
         #region phần DeleteUser
         public bool deleteUserAccount(int userID)
         {
-            Users target = db.Users.FirstOrDefault(x => x.ID == userID);
+            User target = db.Users.FirstOrDefault(x => x.ID == userID);
             try
             {
                 target.Ban = true;
@@ -225,7 +225,7 @@ namespace TraoDoiDoCu.DataAcessLayer
         #endregion
         public bool checkInvalidPassword(int userID, string hashedPassword)
         {
-            Users user = db.Users.FirstOrDefault(x => x.ID == userID && x.PassWord == hashedPassword);
+            User user = db.Users.FirstOrDefault(x => x.ID == userID && x.PassWord == hashedPassword);
             if (user != null)
                 return true;
             return false;
@@ -234,7 +234,7 @@ namespace TraoDoiDoCu.DataAcessLayer
         public int getIDFromUsername(string username)
         {
             int result = -1;
-            Users target = db.Users.FirstOrDefault(x => x.UserName == username);
+            User target = db.Users.FirstOrDefault(x => x.UserName == username);
             if (target != null)
             {
                 result = target.ID;
@@ -252,7 +252,7 @@ namespace TraoDoiDoCu.DataAcessLayer
             var User = db.Users.FirstOrDefault(x => x.UserName == userName);
             if (User != null)
             {
-                var target = db.FollowProduct.Where(x => x.UserID == User.ID);
+                var target = db.FollowProducts.Where(x => x.UserID == User.ID);
                 if (target != null)
                 {
                     foreach (FollowProduct t in target)
@@ -270,7 +270,7 @@ namespace TraoDoiDoCu.DataAcessLayer
             List<Product> result = new List<Product>();
             foreach (int id in lstOfProductIDs)
             {
-                Product temp = db.Product.FirstOrDefault(x => x.ID == id);
+                Product temp = db.Products.FirstOrDefault(x => x.ID == id);
                 if (temp != null)
                     result.Add(temp);
             }
@@ -281,12 +281,12 @@ namespace TraoDoiDoCu.DataAcessLayer
         public bool deleteAFollowedProduct(int userID, int productID)
         {
             FollowProduct target = new FollowProduct();
-            target = db.FollowProduct.FirstOrDefault(x => x.UserID == userID && x.ProductID == productID);
+            target = db.FollowProducts.FirstOrDefault(x => x.UserID == userID && x.ProductID == productID);
             if (target != null)
             {
                 try
                 {
-                    db.FollowProduct.Remove(target);
+                    db.FollowProducts.Remove(target);
                     db.SaveChanges();
                     return true;
                 }
@@ -303,12 +303,12 @@ namespace TraoDoiDoCu.DataAcessLayer
         public bool deleteAFollowedProduct(int followedProductID)
         {
             FollowProduct target = new FollowProduct();
-            target = db.FollowProduct.FirstOrDefault(x => x.ID == followedProductID);
+            target = db.FollowProducts.FirstOrDefault(x => x.ID == followedProductID);
             if (target != null)
             {
                 try
                 {
-                    db.FollowProduct.Remove(target);
+                    db.FollowProducts.Remove(target);
                     db.SaveChanges();
                     return true;
                 }
@@ -320,5 +320,15 @@ namespace TraoDoiDoCu.DataAcessLayer
             return false;
         }
         #endregion
+
+        internal bool GetRoleUser(string UserName)
+        {
+            User user = db.Users.FirstOrDefault(x => x.UserName == UserName);
+            if (user == null)
+                return false;
+            if (user.Admin == true)
+                return true;
+            return false;
+        }
     }
 }

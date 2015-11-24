@@ -31,3 +31,176 @@
 .alert{
     color: red;
 }
+
+.product-row{
+    padding-bottom: 20px;
+}
+
+/*list anh*/
+.gallery{
+	padding: 0;
+	display: block;
+	z-index: 620;
+	max-height: 70px;
+	float: left;
+}
+
+.gallery img {
+	width:70px;
+    height:70px;
+	clear:both
+}
+
+.gallery_list {
+	visibility: visible;
+	overflow: hidden;
+	position: relative;
+	left: 0;
+}
+
+ul {
+	margin:0;
+	padding:0;
+}
+
+.gallery_list li {
+	list-style: outside none none;
+    list-style-type: none;
+    list-style-image: none;
+    list-style-position: outside;
+}
+
+.gallery_list_item {
+	float: left;
+	margin-right: 8px
+}
+
+
+/*preview anh*/
+#preview {
+    padding: 5px;
+    color: #fff;
+    position: absolute;
+    display: none;
+    width: 250px;
+    height: 500px;
+}
+
+img {
+    max-width: 100%;
+    height:auto;
+}
+
+.info_row{
+	float: left;
+	clear: both;
+	padding-top: 2px;
+}
+
+/*Thong tin poster*/
+.panel {
+    width:100%;
+}
+
+.panel_body_info {
+}
+
+/*css so dien  thoai*/
+.tip {
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  background: transparent;
+  border: 10px solid #ccc;
+}
+
+.tip-left {
+  top: 10px;
+  left: -25px;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;  
+}
+
+/*binh luan*/
+.commentbox
+{
+    margin-bottom: 16px;
+    width: 500px;
+    clear:both;
+    float:left;
+}
+
+.commentbox .comment_body {
+  float:left;
+  position: relative;
+  max-width: 400px;
+  height: auto;
+  margin: 20px 10px;
+  margin-left: 20px;
+  padding: 5px;
+  background-color: #DADADA;
+  border-radius: 3px;
+  border: 5px solid #ccc;
+}
+
+.comment_body .message {
+  min-height: 30px;
+  border-radius: 3px;
+  font-family: Arial;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #797979;
+  margin-bottom: 10px;
+}
+
+.comment_body .message span {
+    color: #797979;
+}
+
+.comment_body .date {
+	float: right;
+	font-size: 0.85em;
+	color: #454545;
+	margin-top: 0;
+	margin-right: 15px;
+}
+
+.commentbox .avatar_box {
+	float: left;
+	width: 80px;
+    text-align:center;
+}
+
+.commentbox .avatar {
+	background: #fff;
+	padding: 4px;
+	border: 1px solid #d8d8d8;
+	margin-top: 10px;
+	position: relative;
+}
+.commentbox .username {
+	color: #383838;
+	font-weight: bold;
+	clear: left;
+}
+
+.main_content {
+    border-bottom: 1px solid #DDD;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #DDD;
+    padding-bottom: 5px;
+}
+
+.poster_avatar {
+    clear:both;
+    width:100%;
+}
+
+.info_item {
+    padding-bottom:5px;
+    padding-top:5px;
+     
+}
+/*  */

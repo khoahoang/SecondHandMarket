@@ -17,12 +17,12 @@ namespace TraoDoiDoCu.Controllers.Product
         {
             ViewBag.page = page;
             ViewBag.id = id;
-            var product = td.Product
+            var product = td.Products
                             .Where(p => p.ID == id)
                             .FirstOrDefault();
             if (product != null)
             {
-                ViewBag.PosterName = product.Users.LastName + " " + product.Users.FirstName;
+                ViewBag.PosterName = product.User.LastName + " " + product.User.FirstName;
                 ViewBag.CatName = product.Category.Name;
                 return View(product);
             }
@@ -39,7 +39,7 @@ namespace TraoDoiDoCu.Controllers.Product
 
         public PartialViewResult ProductImagePartial(int productID)
         {
-            return PartialView(td.ProductImage.Where(p => p.ProductID == productID).OrderBy(x => x.ID).ToList());
+            return PartialView(td.ProductImages.Where(p => p.ProductID == productID).OrderBy(x => x.ID).ToList());
         }
 
         public PartialViewResult ProductCommentPartial(int productID, int? page)
@@ -47,7 +47,7 @@ namespace TraoDoiDoCu.Controllers.Product
             ViewBag.productID = productID;
             int pageNumber = (page ?? 1);
             int pageSize = 3;
-            return PartialView(td.Comment.Where(p => p.ProductID == productID).OrderBy(x => x.ID).ToPagedList(pageNumber, pageSize));
+            return PartialView(td.Comments.Where(p => p.ProductID == productID).OrderBy(x => x.ID).ToPagedList(pageNumber, pageSize));
         }
 
         [HttpGet]
@@ -55,7 +55,7 @@ namespace TraoDoiDoCu.Controllers.Product
         {
             ViewBag.productID = productID;
             ViewBag.UserID = new SelectList(td.Users.ToList().OrderBy(n => n.UserName), "ID", "UserName");
-            ViewBag.ProductID = new SelectList(td.Product.ToList().OrderBy(n => n.ID), "ID", "Name");
+            ViewBag.ProductID = new SelectList(td.Products.ToList().OrderBy(n => n.ID), "ID", "Name");
             return PartialView();
         }
 
@@ -72,7 +72,7 @@ namespace TraoDoiDoCu.Controllers.Product
                          where d.UserName == User.Identity.Name
                          select new { d.ID }).SingleOrDefault();
                 comment.UserID = u.ID;
-                td.Comment.Add(comment);
+                td.Comments.Add(comment);
                 td.SaveChanges();
             }
             return PartialView();

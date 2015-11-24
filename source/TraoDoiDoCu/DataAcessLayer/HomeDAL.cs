@@ -11,7 +11,7 @@ namespace TraoDoiDoCu.DataAcessLayer
 
         public int GetCatIDFromCatName(string name)
         {
-            foreach (var c in _DB.Category)
+            foreach (var c in _DB.Categories)
             {
                 if (c.Name == name)
                     return c.ID;
@@ -22,7 +22,7 @@ namespace TraoDoiDoCu.DataAcessLayer
 
         public List<Models.Product> GetProductFromCatID(int id)
         {
-            var products = from p in _DB.Product
+            var products = from p in _DB.Products
                            where p.CategoryID == id
                            select p;
 

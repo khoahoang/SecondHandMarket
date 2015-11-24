@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Categories";
+    ViewBag.Title = "User Product";
 }
 
 @using PagedList;
@@ -77,8 +77,8 @@
     <tr>
         <td style="text-align:right">
             Sắp xếp:
-            <span class="sort-btn btn"><i class="fa fa-clock-o fa-lg"></i> @Html.ActionLink("  Ngày đăng", "Categories", new { name = ViewBag.CurrentName, sortOrder = ViewBag.DateSortParm })</span>
-            <span class="sort-btn btn"><i class="fa fa-money fa-lg"></i> @Html.ActionLink("  Giá", "Categories", new { name = ViewBag.CurrentName, sortOrder = ViewBag.CostSortParm })</span>
+            <span class="sort-btn btn"><i class="fa fa-clock-o fa-lg"></i> @Html.ActionLink("  Ngày đăng", "Categories", new { username = ViewBag.CurrentUserName, sortOrder = ViewBag.DateSortParm })</span>
+            <span class="sort-btn btn"><i class="fa fa-money fa-lg"></i> @Html.ActionLink("  Giá", "Categories", new { username = ViewBag.CurrentUserName, sortOrder = ViewBag.CostSortParm })</span>
         </td>
     </tr>
 </table>
@@ -122,4 +122,4 @@
     }
 </table>
 
-@Html.PagedListPager(Model, page => Url.Action("Categories", new { page, name = ViewBag.CurrentName }), PagedListRenderOptions.OnlyShowFivePagesAtATime);
+@Html.PagedListPager(Model, page => Url.Action("UserProduct", new { page, username = ViewBag.CurrentUserName }), PagedListRenderOptions.OnlyShowFivePagesAtATime);

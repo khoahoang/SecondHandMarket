@@ -39,7 +39,7 @@ namespace TraoDoiDoCu.BusinessLayer
         {
             model.Password = Hash(model.Password);
             string result = dal.AddAccount(model);
-            if(result != null)
+            if (result != null)
             {
                 SendActivationEmail(model, result);
                 return true;
@@ -68,8 +68,8 @@ namespace TraoDoiDoCu.BusinessLayer
                 smtp.Send(mm);
             }
         }
-        #endregion     
-    
+        #endregion
+
         #region #phần hash
         // hash password
         public string Hash(string password)
@@ -128,7 +128,7 @@ namespace TraoDoiDoCu.BusinessLayer
         }
         public bool ChangePassword(ResetPasswordViewModel ressetPassVM)
         {
-            return dal.ResetPassword(ressetPassVM);            
+            return dal.ResetPassword(ressetPassVM);
         }
         #endregion
 
@@ -136,15 +136,15 @@ namespace TraoDoiDoCu.BusinessLayer
         //What I need:
         // - LoginIsValid
         // - GetUserInfo
-        public Users getUserInfoBUS(int userID)
+        public User getUserInfoBUS(int userID)
         {
 
-            Users userInfo = new Users();
+            User userInfo = new User();
             userInfo = dal.getUserInfo(userID);
             return userInfo;
         }
         // - UpdateUserInfo
-        public bool updateUserInfoBUS(int userID, Users newUpdatedUser)
+        public bool updateUserInfoBUS(int userID, User newUpdatedUser)
         {
 
             return dal.updateUserInfo(userID, newUpdatedUser);
@@ -190,6 +190,11 @@ namespace TraoDoiDoCu.BusinessLayer
         public bool deleteAFollowedProduct(int followedProductID)
         {
             return dal.deleteAFollowedProduct(followedProductID);
+        }
+
+        internal bool GetRoleUser(string username)
+        {
+            return dal.GetRoleUser(username);
         }
     }
 }

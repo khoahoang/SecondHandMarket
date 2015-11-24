@@ -38,7 +38,17 @@ namespace TraoDoiDoCu.Controllers.Account
                     else
                     {
                         FormsAuthentication.SetAuthCookie(model.UserName, false);
-                        return RedirectToAction("Index", "Home");
+                        bool isAdmin = bus.GetRoleUser(model.UserName);
+                        if (isAdmin)
+                        {
+                            Session["role"] = "Admin";
+                            return RedirectToAction("Index", "Dashboard");
+                        }
+                        else
+                        {
+                            Session["role"] = "NormalUser";
+                            return RedirectToAction("Index", "Home");
+                        }
                     }                    
                 }
                 else
@@ -235,7 +245,7 @@ namespace TraoDoiDoCu.Controllers.Account
 
             if (Request.Form.Count > 0)
             {
-                Users updatedUserInfo = new Users();
+                User updatedUserInfo = new User();
                 updatedUserInfo.FirstName = Request.Form["FirstName"];
                 updatedUserInfo.LastName = Request.Form["LastName"];
                 updatedUserInfo.Email = Request.Form["Email"];

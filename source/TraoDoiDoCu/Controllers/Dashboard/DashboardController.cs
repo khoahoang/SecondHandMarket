@@ -116,7 +116,7 @@ namespace TraoDoiDoCu.Controllers.Dashboard
                           select p).Count();
             ViewBag.SL_acc = sl_acc;
             var now = DateTime.Now;
-            int sl_post = (from p in td.Product
+            int sl_post = (from p in td.Products
                            where (p.PostingDate.Value.Month == now.Month &&
                                p.PostingDate.Value.Year == now.Year)
                            select p).Count();
@@ -135,14 +135,14 @@ namespace TraoDoiDoCu.Controllers.Dashboard
             int sl_post;
             if (Year == 0)
             {
-                sl_post = (from p in td.Product
+                sl_post = (from p in td.Products
                            select p).Count();
                 ViewBag.SSL_post = sl_post;
 
             }
             else
             {
-                sl_post = (from p in td.Product
+                sl_post = (from p in td.Products
                            where p.PostingDate.Value.Year <= Year
                            select p
                              ).Count();
@@ -151,7 +151,7 @@ namespace TraoDoiDoCu.Controllers.Dashboard
             if (sl_post == 0) sl_post = 1;
             for (int i = 1; i <= 12; i++)
             {
-                int sll = (from p in td.Product
+                int sll = (from p in td.Products
                            where (p.PostingDate.Value.Month == i
                            && p.PostingDate.Value.Year == Year)
                            select p).Count();
@@ -188,14 +188,14 @@ namespace TraoDoiDoCu.Controllers.Dashboard
             int sl_post;
             if (Year == 0)
             {
-                sl_post = (from p in td.Product
+                sl_post = (from p in td.Products
                            select p).Count();
                 ViewBag.SSL_post = sl_post;
 
             }
             else
             {
-                sl_post = (from p in td.Product
+                sl_post = (from p in td.Products
                            where p.PostingDate.Value.Year <= Year
                            select p
                              ).Count();
@@ -205,7 +205,7 @@ namespace TraoDoiDoCu.Controllers.Dashboard
             if (sl_post == 0) sl_post = 1;
             for (int i = 1; i <= 12; i++)
             {
-                int sll = (from p in td.Product
+                int sll = (from p in td.Products
                            where (p.PostingDate.Value.Month == i
                            && p.PostingDate.Value.Year == Year)
                            select p).Count();

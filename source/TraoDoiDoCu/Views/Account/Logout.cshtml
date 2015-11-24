@@ -7,5 +7,18 @@
     <p>Bạn đã đăng xuất thành công.</p>
     <p>Click vào @Html.ActionLink("đây","Index","Home") để quay lại trang chủ.</p>
 </div>
+<div id="login-reg-link-hidden" class="hidden">
+    <b>
+        @Html.ActionLink("Đăng kí", "Register", "Account")
+        <span> | </span>
+        @Html.ActionLink("Đăng nhập", "Login", "Account")
+    </b>
+</div>
+<div id="reg-link-hidden" class="hidden"></div>
+<script>
+    $('.nav-dashboard').hide();
+    var content = $('#login-reg-link-hidden').html();
+    $('.my-menu').html(content);
+</script>
 
 

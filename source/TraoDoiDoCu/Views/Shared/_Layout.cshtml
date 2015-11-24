@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@ViewBag.Title</title>    
+    <title>@ViewBag.Title</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="@Url.Content("~/Content/css/bootstrap.min.css")" type="text/css">
@@ -61,17 +61,25 @@
                     </button>
                     <a class="navbar-brand" href="#"><img class="img-responsive" src="http://www.turnerduckworth.com/media/filer_public/b4/ac/b4ac5dfe-b335-403c-83b2-ec69e01f94e6/td-amazon-hero.svg" alt="Logo"></a>
                 </div>
-               
+
                 <ul id="menu">
-                    <li><a href="#"><b>Trang chủ</b></a></li>
+                    <li><b>@Html.ActionLink("Trang chủ", "Index", "Home")</b></li>
                     <li><a href="#about"><b>Thông tin</b></a></li>
                     <li><a href="#contact"><b>Liên hệ</b></a></li>
+
+                    @if (@Session["role"] != null && (string)@Session["role"] == "Admin")
+                    {
+                        <li class="nav-dasboard">
+                            <b>@Html.ActionLink("Quản trị", "Index", "Dashboard")</b>
+                        </li>
+                    }
+
                     <li class="my-menu">
                         <b>
                             @if (Request.IsAuthenticated)
                             {
-                               <text>Xin chào,</text> <a style="margin-right: 14px; color: white"href="@Url.Action("DisplayUserInfo", "Account", new { UserName = User.Identity.Name }) ">@Html.Encode(User.Identity.Name) </a>    
-                                
+                                <text>Xin chào,</text> <a style="margin-right: 14px; color: white" href="@Url.Action("DisplayUserInfo", "Account", new { UserName = User.Identity.Name }) ">@Html.Encode(User.Identity.Name) </a>
+
                                 @Html.ActionLink("Đăng xuất", "Logout", "Account")
                             }
                             else
@@ -97,7 +105,7 @@
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
             <li data-target="#myCarousel" data-slide-to="3"></li>
-            <li data-target="#myCarousel" data-slide-to="4"></li> 
+            <li data-target="#myCarousel" data-slide-to="4"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
@@ -152,7 +160,6 @@
             </div>
         </div>
     </div><!-- /.carousel -->
-
     <!-- Main content-->
     <div class="main-content">
         <table class="table-condensed" style="width: 100%">
@@ -162,30 +169,57 @@
                         <label class="label-info">DANH MỤC</label>
                         @using (var db = new TraoDoiDoCu.Models.TraoDoiDoCuEntities())
                         {
-                            foreach (var item in db.Category)
+                            foreach (var item in db.Categories)
                             {
                                 <a href="@Url.Action("Categories", "Home")?name=@item.Name" class="list-group-item">@item.Name</a>
                             }
                         }
                     </div>
                 </td>
-                <td style="width: 70%; vertical-align: top; padding-left: 10px; padding-right: 10px">
+                <td style="width: 70%; vertical-align: top; padding-left: 20px; padding-right: 20px">
                     @RenderBody()
                 </td>
                 <td style="width: 15%; vertical-align: top">
                     <label class="label-info">TOP RATING</label>
                     @using (var db = new TraoDoiDoCu.Models.TraoDoiDoCuEntities())
                     {
-                        foreach (var item in db.Users)
+                        var users = db.Users.ToList();
+
+                        if (users.Count < 5)
                         {
-                            <a href="#" class="list-group-item">@item.UserName</a>
+                            foreach (var item in users)
+                            {
+                                if (item.Rating > 1)
+                                {
+                                    <a href="@Url.Action("UserProduct", "Home")?username=@item.UserName" class="list-group-item">@item.UserName</a>
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (int i = 0; i < 5; i++)
+                            {
+                                int index = 0;
+                                int max = (int)users[index].Rating;
+                                for (int j = 0; j < users.Count; j++)
+                                {
+                                    if (users[j].Rating > max)
+                                    {
+                                        index = j;
+                                        max = (int)users[j].Rating;
+                                    }
+                                }
+
+                                <a href="@Url.Action("UserProduct", "Home")?username=@users[index].UserName" class="list-group-item">@users[index].UserName</a>
+                                users.RemoveAt(index);
+                            }
                         }
                     }
                 </td>
             </tr>
         </table>
-    </div>       
-    
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="footer container-fluid">
