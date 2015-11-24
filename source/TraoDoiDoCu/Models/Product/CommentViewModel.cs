@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations;
 namespace TraoDoiDoCu.Models
 {
     [MetadataTypeAttribute(typeof(CommentViewModel))]
-    public partial class Comment
+    public partial class Comments
     {
         internal sealed class CommentViewModel
         {

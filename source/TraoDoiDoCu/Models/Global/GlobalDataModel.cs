@@ -12,8 +12,8 @@ namespace TraoDoiDoCu.Models
         public void ThemThongBao(string noiDung)
         {
             
-            GlobalDatas xoaThongBao = new GlobalDatas();
-            foreach (GlobalDatas globalData in tde.GlobalDatas)
+            GlobalData xoaThongBao = new GlobalData();
+            foreach (GlobalData globalData in tde.GlobalDatas)
             {
                 if (globalData.Name.Equals("ThongBao"))
                 {
@@ -24,7 +24,7 @@ namespace TraoDoiDoCu.Models
             if (xoaThongBao.Name != null)
                 tde.GlobalDatas.Remove(xoaThongBao);
 
-            GlobalDatas thongBaoMoi = new GlobalDatas();
+            GlobalData thongBaoMoi = new GlobalData();
             thongBaoMoi.Name = "ThongBao";
             thongBaoMoi.Content = noiDung;
 
@@ -34,8 +34,8 @@ namespace TraoDoiDoCu.Models
 
         public void XoaToanBoThongBao()
         {
-            List<GlobalDatas> xoaThongBaos = new List<GlobalDatas>();
-            foreach (GlobalDatas globalData in tde.GlobalDatas)
+            List<GlobalData> xoaThongBaos = new List<GlobalData>();
+            foreach (GlobalData globalData in tde.GlobalDatas)
             {
                 if (globalData.Name.Equals("ThongBao"))
                 {
@@ -43,7 +43,7 @@ namespace TraoDoiDoCu.Models
                 }
             }
 
-            foreach (GlobalDatas xoaThongBao in xoaThongBaos)
+            foreach (GlobalData xoaThongBao in xoaThongBaos)
             {
                 tde.GlobalDatas.Remove(xoaThongBao);
             }
@@ -53,7 +53,7 @@ namespace TraoDoiDoCu.Models
 
         public string LayThongBao()
         {
-            foreach (GlobalDatas globalData in tde.GlobalDatas)
+            foreach (GlobalData globalData in tde.GlobalDatas)
             {
                 if (globalData.Equals("ThongBao"))
                 {

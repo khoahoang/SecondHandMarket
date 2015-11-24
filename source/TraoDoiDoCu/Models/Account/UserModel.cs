@@ -12,7 +12,7 @@ namespace TraoDoiDoCu.Models
         public bool SendMessage(int idSender, int idReciver, string content)
         {
            
-            Messages mess = new Messages();
+            Message mess = new Message();
             mess.Content = content;
             mess.ID_Sender = idSender;
             mess.ID_Reciver = idReciver;
@@ -29,7 +29,7 @@ namespace TraoDoiDoCu.Models
 
         public void BanAccount(List<String> username)
         {
-            foreach (Users a in tde.Users)
+            foreach (User a in tde.Users)
             {
                 if (username.Contains(a.UserName))
                 {
@@ -44,7 +44,7 @@ namespace TraoDoiDoCu.Models
 
         public void CheckBanAccount()
         {
-            foreach (Users a in tde.Users)
+            foreach (User a in tde.Users)
             {
                 if (DateTime.Compare(DateTime.Now, (DateTime)a.BanDate) > 30)
                 {
@@ -59,14 +59,14 @@ namespace TraoDoiDoCu.Models
 
         public void DeleteAccount(List<String> username)
         {
-            List<Users> users = new List<Users>();
-            foreach (Users a in tde.Users)
+            List<User> users = new List<User>();
+            foreach (User a in tde.Users)
             {
                 if (username.Contains(a.UserName))
                     users.Add(a);
             }
 
-            foreach (Users a in users)
+            foreach (User a in users)
                 tde.Users.Remove(a);
 
             tde.SaveChanges();
